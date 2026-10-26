@@ -1,248 +1,594 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Bronchiolitis Obliterans</title>
-<style>
-  :root{
-    --bg:#ffffff;
-    --text:#242424;
-    --muted:#5f6368;
-    --accent:#1a56db;
-    --line:#e2e5e9;
-    --bg-alt:#f6f7f9;
-  }
-  @media (prefers-color-scheme: dark){
-    :root:not([data-theme="light"]){
-      --bg:#15181c;
-      --text:#e7e9ec;
-      --muted:#a3aab3;
-      --accent:#5b8def;
-      --line:#2c3138;
-      --bg-alt:#1c2025;
-    }
-  }
-  :root[data-theme="dark"]{
-    --bg:#15181c;
-    --text:#e7e9ec;
-    --muted:#a3aab3;
-    --accent:#5b8def;
-    --line:#2c3138;
-    --bg-alt:#1c2025;
-  }
-  *{ box-sizing:border-box; }
-  body{
-    margin:0;
-    background:var(--bg);
-    color:var(--text);
-    font-family: -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-    font-size:17px;
-    line-height:1.7;
-  }
-  .wrap{
-    max-width:720px;
-    margin-inline:auto;
-    padding-inline:20px;
-  }
-  header{
-    border-bottom:1px solid var(--line);
-    padding-block:30px;
-    background:var(--bg-alt);
-  }
-  header h1{
-    margin:0 0 10px;
-    font-size:clamp(1.7rem, 5vw, 2.2rem);
-    color:var(--text);
-  }
-  header .byline{
-    color:var(--muted);
-    font-size:.92rem;
-  }
-  nav{
-    padding-block:12px;
-    border-bottom:1px solid var(--line);
-  }
-  nav .wrap{
-    display:flex;
-    flex-wrap:wrap;
-    gap:4px 16px;
-  }
-  nav a{
-    color:var(--accent);
-    text-decoration:none;
-    font-size:.88rem;
-  }
-  nav a:hover{ text-decoration:underline; }
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bronchiolitis Obliterans</title>
+    <style>
+      :root {
+        --bg: #ffffff;
+        --text: #242424;
+        --muted: #5f6368;
+        --accent: #1a56db;
+        --line: #e2e5e9;
+        --bg-alt: #f6f7f9;
+      }
+      @media (prefers-color-scheme: dark) {
+        :root:not([data-theme="light"]) {
+          --bg: #15181c;
+          --text: #e7e9ec;
+          --muted: #a3aab3;
+          --accent: #5b8def;
+          --line: #2c3138;
+          --bg-alt: #1c2025;
+        }
+      }
+      :root[data-theme="dark"] {
+        --bg: #15181c;
+        --text: #e7e9ec;
+        --muted: #a3aab3;
+        --accent: #5b8def;
+        --line: #2c3138;
+        --bg-alt: #1c2025;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        background: var(--bg);
+        color: var(--text);
+        font-family:
+          -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        font-size: 17px;
+        line-height: 1.7;
+      }
+      .wrap {
+        max-width: 720px;
+        margin-inline: auto;
+        padding-inline: 20px;
+      }
+      header {
+        border-bottom: 1px solid var(--line);
+        padding-block: 30px;
+        background: var(--bg-alt);
+      }
+      header h1 {
+        margin: 0 0 10px;
+        font-size: clamp(1.7rem, 5vw, 2.2rem);
+        color: var(--text);
+      }
+      header .byline {
+        color: var(--muted);
+        font-size: 0.92rem;
+      }
+      nav {
+        padding-block: 12px;
+        border-bottom: 1px solid var(--line);
+      }
+      nav .wrap {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 4px 16px;
+      }
+      nav a {
+        color: var(--accent);
+        text-decoration: none;
+        font-size: 0.88rem;
+      }
+      nav a:hover {
+        text-decoration: underline;
+      }
 
-  section{
-    padding-block:34px;
-    border-bottom:1px solid var(--line);
-  }
-  section:last-of-type{ border-bottom:none; }
-  section h2{
-    font-size:1.3rem;
-    color:var(--accent);
-    margin:0 0 14px;
-    padding-bottom:8px;
-    border-bottom:2px solid var(--accent);
-    display:inline-block;
-  }
-  section p{
-    margin:0 0 14px;
-    max-width:70ch;
-  }
-  ul.objetivos{
-    margin:14px 0 0;
-    padding-left:1.3em;
-  }
-  ul.objetivos li{
-    margin-bottom:12px;
-    max-width:68ch;
-  }
-  figure{
-    margin:20px 0;
-  }
-  figure img{
-    display:block;
-    max-width:100%;
-    height:auto;
-    border:1px solid var(--line);
-    border-radius:6px;
-  }
-  figure figcaption{
-    margin-top:6px;
-    font-size:.8rem;
-    color:var(--muted);
-    font-style:italic;
-  }
-  .cite{ display:block; margin-top:6px; color:var(--muted); font-size:.8rem; }
-  footer{
-    padding:24px 20px 40px;
-    text-align:center;
-    color:var(--muted);
-    font-size:.85rem;
-  }
-</style>
-</head>
-<body>
+      section {
+        padding-block: 34px;
+        border-bottom: 1px solid var(--line);
+      }
+      section:last-of-type {
+        border-bottom: none;
+      }
+      section h2 {
+        font-size: 1.3rem;
+        color: var(--accent);
+        margin: 0 0 14px;
+        padding-bottom: 8px;
+        border-bottom: 2px solid var(--accent);
+        display: inline-block;
+      }
+      section p {
+        margin: 0 0 14px;
+        max-width: 70ch;
+      }
+      ul.objetivos {
+        margin: 14px 0 0;
+        padding-left: 1.3em;
+      }
+      ul.objetivos li {
+        margin-bottom: 12px;
+        max-width: 68ch;
+      }
+      figure {
+        margin: 20px 0;
+      }
+      figure img {
+        display: block;
+        max-width: 100%;
+        height: auto;
+        border: 1px solid var(--line);
+        border-radius: 6px;
+      }
+      figure figcaption {
+        margin-top: 6px;
+        font-size: 0.8rem;
+        color: var(--muted);
+        font-style: italic;
+      }
+      video {
+        display: block;
+        width: 100%;
+        max-width: 100%;
+        margin-top: 18px;
+        border: 1px solid var(--line);
+        border-radius: 6px;
+        background: #000;
+      }
+      .cite {
+        display: block;
+        margin-top: 6px;
+        color: var(--muted);
+        font-size: 0.8rem;
+      }
+      footer {
+        padding: 24px 20px 40px;
+        text-align: center;
+        color: var(--muted);
+        font-size: 0.85rem;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="wrap">
+        <h1>Bronchiolitis Obliterans</h1>
+        <div class="byline">Alejandro Quintero Agudelo</div>
+        <div class="byline">
+          Survey:
+          <a
+            href="https://docs.google.com/forms/d/e/1FAIpQLSc2AnMQy6975I-bjsaVHKiOK5-aSDeGDKm7GYk1XzRyy1De8g/viewform?usp=header"
+            target="_blank"
+            rel="noopener"
+            >https://docs.google.com/forms/d/e/1FAIpQLSc2AnMQy6975I-bjsaVHKiOK5-aSDeGDKm7GYk1XzRyy1De8g/viewform?usp=header</a
+          >
+        </div>
+      </div>
+    </header>
 
-<header>
-  <div class="wrap">
-    <h1>Bronchiolitis Obliterans</h1>
-    <div class="byline">Alejandro Quintero Agudelo </div>
-    <div class="byline">Survey: <a href="https://docs.google.com/forms/d/e/1FAIpQLSc2AnMQy6975I-bjsaVHKiOK5-aSDeGDKm7GYk1XzRyy1De8g/viewform?usp=header" target="_blank" rel="noopener">https://docs.google.com/forms/d/e/1FAIpQLSc2AnMQy6975I-bjsaVHKiOK5-aSDeGDKm7GYk1XzRyy1De8g/viewform?usp=header</a></div>
-  </div>
-</header>
+    <nav>
+      <div class="wrap">
+        <a href="#introduction">Introduction</a>
+        <a href="#what-is-it">What is it</a>
+        <a href="#why-it-happens">Why it happens</a>
+        <a href="#symptoms">Symptoms</a>
+        <a href="#diagnosis">Diagnosis</a>
+        <a href="#treatment">Treatment</a>
+        <a href="#prognosis">Cure</a>
+        <a href="#objective">Objective</a>
+        <a href="#interview">Interviews</a>
+        <a href="#references">References</a>
+      </div>
+    </nav>
 
-<nav>
-  <div class="wrap">
-    <a href="#introduction">Introduction</a>
-    <a href="#what-is-it">What is it</a>
-    <a href="#why-it-happens">Why it happens</a>
-    <a href="#symptoms">Symptoms</a>
-    <a href="#diagnosis">Diagnosis</a>
-    <a href="#treatment">Treatment</a>
-    <a href="#prognosis">Cure</a>
-    <a href="#objective">Objective</a>
-    <a href="#references">References</a>
-  </div>
-</nav>
+    <section id="introduction">
+      <div class="wrap">
+        <h2>Introduction</h2>
+        <p>
+          It's a lung disease that can appear as a result of a complication
+          after a bone marrow transplant, which was my case, but now, with the
+          rise of vapes, it has also been found to cause it.<span class="cite"
+            >Cleveland Clinic. (2026). Popcorn lung (bronchiolitis obliterans).
+            Cleveland Clinic.
+            <a
+              href="https://my.clevelandclinic.org/health/diseases/22590-popcorn-lung-bronchiolitis-obliterans"
+              style="color: inherit"
+              >https://my.clevelandclinic.org/health/diseases/22590-popcorn-lung-bronchiolitis-obliterans</a
+            ></span
+          ><span class="cite"
+            >National Jewish Health. (2025). Bronchiolitis obliterans. National
+            Jewish Health.
+            <a
+              href="https://www.nationaljewish.org/conditions/bronchiolitis"
+              style="color: inherit"
+              >https://www.nationaljewish.org/conditions/bronchiolitis</a
+            ></span
+          >
+        </p>
+      </div>
+    </section>
 
-<section id="introduction">
-  <div class="wrap">
-    <h2>Introduction</h2>
-    <p>It's a lung disease that can appear as a result of a complication after a bone marrow transplant, which was my case, but now, with the rise of vapes, it has also been found to cause it.<span class="cite">Cleveland Clinic. (2026). Popcorn lung (bronchiolitis obliterans). Cleveland Clinic. <a href="https://my.clevelandclinic.org/health/diseases/22590-popcorn-lung-bronchiolitis-obliterans" style="color:inherit">https://my.clevelandclinic.org/health/diseases/22590-popcorn-lung-bronchiolitis-obliterans</a></span><span class="cite">National Jewish Health. (2025). Bronchiolitis obliterans. National Jewish Health. <a href="https://www.nationaljewish.org/conditions/bronchiolitis" style="color:inherit">https://www.nationaljewish.org/conditions/bronchiolitis</a></span></p>
-  </div>
-</section>
+    <section id="what-is-it">
+      <div class="wrap">
+        <h2>What is bronchiolitis obliterans?</h2>
+        <figure>
+          <img
+            src="https://commons.wikimedia.org/wiki/Special:FilePath/Illu_bronchi_lungs.jpg"
+            alt="Illustration of the lungs, bronchi, and bronchioles"
+          />
+          <figcaption>
+            National Cancer Institute. (2006). Illu bronchi lungs. Wikimedia
+            Commons.
+            <a
+              href="https://commons.wikimedia.org/wiki/File:Illu_bronchi_lungs.jpg"
+              style="color: inherit"
+              >https://commons.wikimedia.org/wiki/File:Illu_bronchi_lungs.jpg</a
+            >
+          </figcaption>
+        </figure>
+        <p>
+          Bronchiolitis obliterans is a disease that affects the bronchioles,
+          the SMALLEST airways in the lungs. These airways become inflamed and,
+          over time, can scar. That scarring makes them narrower and narrower,
+          so air passes with more and more difficulty when leaving the
+          lungs.<span class="cite"
+            >Cleveland Clinic. (2026). Popcorn lung (bronchiolitis obliterans).
+            Cleveland Clinic.
+            <a
+              href="https://my.clevelandclinic.org/health/diseases/22590-popcorn-lung-bronchiolitis-obliterans"
+              style="color: inherit"
+              >https://my.clevelandclinic.org/health/diseases/22590-popcorn-lung-bronchiolitis-obliterans</a
+            ></span
+          >
+        </p>
+        <p>
+          When it happens after a bone marrow transplant, it is known as
+          BRONCHIOLITIS OBLITERANS SYNDROME. It is one of the most serious
+          manifestations of chronic graft-versus-host disease, though not the
+          only one — for example, all my nails also fell out, my mouth filled
+          with sores, I got patches all over my body, and my liver became
+          inflamed. This happens because my body rejected the cells, which in
+          this case were my brother's, even though we were 100% compatible. But
+          the worst damage was to my lungs.<span class="cite"
+            >Dinh-Van L. (2026). Management challenges and outcomes of
+            bronchiolitis obliterans syndrome after hematopoietic stem cell
+            transplantation: First case series report from Vietnam. Case Reports
+            in Hematology.
+            <a
+              href="https://onlinelibrary.wiley.com/doi/10.1155/crh/8055215"
+              style="color: inherit"
+              >https://onlinelibrary.wiley.com/doi/10.1155/crh/8055215</a
+            ></span
+          >
+        </p>
+      </div>
+    </section>
 
-<section id="what-is-it">
-  <div class="wrap">
-    <h2>What is bronchiolitis obliterans?</h2>
-    <figure>
-      <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Illu_bronchi_lungs.jpg" alt="Illustration of the lungs, bronchi, and bronchioles">
-      <figcaption>National Cancer Institute. (2006). Illu bronchi lungs. Wikimedia Commons. <a href="https://commons.wikimedia.org/wiki/File:Illu_bronchi_lungs.jpg" style="color:inherit">https://commons.wikimedia.org/wiki/File:Illu_bronchi_lungs.jpg</a></figcaption>
-    </figure>
-    <p>Bronchiolitis obliterans is a disease that affects the bronchioles, the SMALLEST airways in the lungs. These airways become inflamed and, over time, can scar. That scarring makes them narrower and narrower, so air passes with more and more difficulty when leaving the lungs.<span class="cite">Cleveland Clinic. (2026). Popcorn lung (bronchiolitis obliterans). Cleveland Clinic. <a href="https://my.clevelandclinic.org/health/diseases/22590-popcorn-lung-bronchiolitis-obliterans" style="color:inherit">https://my.clevelandclinic.org/health/diseases/22590-popcorn-lung-bronchiolitis-obliterans</a></span></p>
-    <p>When it happens after a bone marrow transplant, it is known as BRONCHIOLITIS OBLITERANS SYNDROME. It is one of the most serious manifestations of chronic graft-versus-host disease, though not the only one — for example, all my nails also fell out, my mouth filled with sores, I got patches all over my body, and my liver became inflamed. This happens because my body rejected the cells, which in this case were my brother's, even though we were 100% compatible. But the worst damage was to my lungs.<span class="cite">Dinh-Van L. (2026). Management challenges and outcomes of bronchiolitis obliterans syndrome after hematopoietic stem cell transplantation: First case series report from Vietnam. Case Reports in Hematology. <a href="https://onlinelibrary.wiley.com/doi/10.1155/crh/8055215" style="color:inherit">https://onlinelibrary.wiley.com/doi/10.1155/crh/8055215</a></span></p>
-  </div>
-</section>
+    <section id="why-it-happens">
+      <div class="wrap">
+        <h2>Why does it happen?</h2>
+        <figure>
+          <img
+            src="https://commons.wikimedia.org/wiki/Special:FilePath/Diagram_of_bone_marrow_CRUK_462.svg"
+            alt="Diagram of bone marrow inside a bone"
+          />
+          <figcaption>
+            Cancer Research UK. (2016). Diagram of bone marrow. Wikimedia
+            Commons.
+            <a
+              href="https://commons.wikimedia.org/wiki/File:Diagram_of_bone_marrow_CRUK_462.svg"
+              style="color: inherit"
+              >https://commons.wikimedia.org/wiki/File:Diagram_of_bone_marrow_CRUK_462.svg</a
+            >
+          </figcaption>
+        </figure>
+        <p>
+          Bronchiolitis obliterans can have different causes. Some people
+          develop it from exposure to irritating chemicals at work, like ammonia
+          or chlorine. It can also appear after serious respiratory infections,
+          transplants, or certain autoimmune diseases.<span class="cite"
+            >National Jewish Health. (2025). Bronchiolitis obliterans. National
+            Jewish Health.
+            <a
+              href="https://www.nationaljewish.org/conditions/bronchiolitis"
+              style="color: inherit"
+              >https://www.nationaljewish.org/conditions/bronchiolitis</a
+            ></span
+          >
+        </p>
+        <p>
+          In my case, I was first diagnosed with Hyper-IgM Syndrome, a genetic
+          immunodeficiency that makes it hard to produce antibodies normally —
+          antibodies being an essential part of your defenses. Basically, my
+          defenses were dumb: for example, I'd catch a cold, and they'd beat it,
+          but then the same cold could come back and they wouldn't know how to
+          fight it, which isn't normal, because after a given cold X they're
+          supposed to remember it, like a memory. The transplant could be a
+          possible cure; the other option was to keep getting antibody infusions
+          every month and leave it up to fate whether I'd stay alive with just
+          that, which I don't think I would have.<span class="cite"
+            >Fernandez J. (2026). Hyper-IgM syndrome. MSD Manual Consumer
+            Version.
+            <a
+              href="https://www.merckmanuals.com/home/immune-disorders/immunodeficiency-disorders/hyper-igm-syndrome"
+              style="color: inherit"
+              >https://www.merckmanuals.com/home/immune-disorders/immunodeficiency-disorders/hyper-igm-syndrome</a
+            ></span
+          >
+        </p>
+      </div>
+    </section>
 
-<section id="why-it-happens">
-  <div class="wrap">
-    <h2>Why does it happen?</h2>
-    <figure>
-      <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Diagram_of_bone_marrow_CRUK_462.svg" alt="Diagram of bone marrow inside a bone">
-      <figcaption>Cancer Research UK. (2016). Diagram of bone marrow. Wikimedia Commons. <a href="https://commons.wikimedia.org/wiki/File:Diagram_of_bone_marrow_CRUK_462.svg" style="color:inherit">https://commons.wikimedia.org/wiki/File:Diagram_of_bone_marrow_CRUK_462.svg</a></figcaption>
-    </figure>
-    <p>Bronchiolitis obliterans can have different causes. Some people develop it from exposure to irritating chemicals at work, like ammonia or chlorine. It can also appear after serious respiratory infections, transplants, or certain autoimmune diseases.<span class="cite">National Jewish Health. (2025). Bronchiolitis obliterans. National Jewish Health. <a href="https://www.nationaljewish.org/conditions/bronchiolitis" style="color:inherit">https://www.nationaljewish.org/conditions/bronchiolitis</a></span></p>
-    <p>In my case, I was first diagnosed with Hyper-IgM Syndrome, a genetic immunodeficiency that makes it hard to produce antibodies normally — antibodies being an essential part of your defenses. Basically, my defenses were dumb: for example, I'd catch a cold, and they'd beat it, but then the same cold could come back and they wouldn't know how to fight it, which isn't normal, because after a given cold X they're supposed to remember it, like a memory. The transplant could be a possible cure; the other option was to keep getting antibody infusions every month and leave it up to fate whether I'd stay alive with just that, which I don't think I would have.<span class="cite">Fernandez J. (2026). Hyper-IgM syndrome. MSD Manual Consumer Version. <a href="https://www.merckmanuals.com/home/immune-disorders/immunodeficiency-disorders/hyper-igm-syndrome" style="color:inherit">https://www.merckmanuals.com/home/immune-disorders/immunodeficiency-disorders/hyper-igm-syndrome</a></span></p>
-  </div>
-</section>
+    <section id="symptoms">
+      <div class="wrap">
+        <h2>Symptoms and impact on daily life</h2>
+        <p>
+          The hardest part of this disease is that it doesn't cause symptoms at
+          first — it progresses silently, and by the time symptoms show up, it's
+          already quite advanced. The symptoms are shortness of breath with
+          exertion, a dry and persistent cough, wheezing when breathing,
+          exhaustion, lower physical endurance, and very frequent respiratory
+          infections<span class="cite"
+            >American Lung Association. (2025). Bronchiolitis obliterans
+            symptoms and diagnosis. American Lung Association.
+            <a
+              href="https://www.lung.org/lung-health-diseases/lung-disease-lookup/popcorn-lung/symptoms-diagnosis"
+              style="color: inherit"
+              >https://www.lung.org/lung-health-diseases/lung-disease-lookup/popcorn-lung/symptoms-diagnosis</a
+            ></span
+          ><span class="cite"
+            >Cleveland Clinic. (2026). Popcorn lung (bronchiolitis obliterans).
+            Cleveland Clinic.
+            <a
+              href="https://my.clevelandclinic.org/health/diseases/22590-popcorn-lung-bronchiolitis-obliterans"
+              style="color: inherit"
+              >https://my.clevelandclinic.org/health/diseases/22590-popcorn-lung-bronchiolitis-obliterans</a
+            ></span
+          >
+        </p>
+        <p>
+          In everyday life, you feel it when climbing stairs, running,
+          exercising, or doing other activities.
+        </p>
+      </div>
+    </section>
 
-<section id="symptoms">
-  <div class="wrap">
-    <h2>Symptoms and impact on daily life</h2>
-    <p>The hardest part of this disease is that it doesn't cause symptoms at first — it progresses silently, and by the time symptoms show up, it's already quite advanced. The symptoms are shortness of breath with exertion, a dry and persistent cough, wheezing when breathing, exhaustion, lower physical endurance, and very frequent respiratory infections<span class="cite">American Lung Association. (2025). Bronchiolitis obliterans symptoms and diagnosis. American Lung Association. <a href="https://www.lung.org/lung-health-diseases/lung-disease-lookup/popcorn-lung/symptoms-diagnosis" style="color:inherit">https://www.lung.org/lung-health-diseases/lung-disease-lookup/popcorn-lung/symptoms-diagnosis</a></span><span class="cite">Cleveland Clinic. (2026). Popcorn lung (bronchiolitis obliterans). Cleveland Clinic. <a href="https://my.clevelandclinic.org/health/diseases/22590-popcorn-lung-bronchiolitis-obliterans" style="color:inherit">https://my.clevelandclinic.org/health/diseases/22590-popcorn-lung-bronchiolitis-obliterans</a></span></p>
-    <p>In everyday life, you feel it when climbing stairs, running, exercising, or doing other activities.</p>
-  </div>
-</section>
+    <section id="diagnosis">
+      <div class="wrap">
+        <h2>How it is diagnosed</h2>
+        <figure>
+          <img
+            src="https://commons.wikimedia.org/wiki/Special:FilePath/Spirometry_NIH.jpg"
+            alt="Patient taking a spirometry test"
+          />
+          <figcaption>
+            National Heart, Lung, and Blood Institute. (2013). Spirometry NIH.
+            Wikimedia Commons.
+            <a
+              href="https://commons.wikimedia.org/wiki/File:Spirometry_NIH.jpg"
+              style="color: inherit"
+              >https://commons.wikimedia.org/wiki/File:Spirometry_NIH.jpg</a
+            >
+          </figcaption>
+        </figure>
+        <p>
+          There are several ways; I was diagnosed through a biopsy, which, as a
+          fun fact, wasn't just a simple biopsy — they actually broke my left
+          lung. Diagnosing it is also usually based on lung function tests, like
+          spirometry, and doctors may also order chest CT scans, X-rays, and
+          bronchoscopies. Catching it early matters a lot, because it allows
+          treatment to start before the damage progresses too far.<span
+            class="cite"
+            >American Lung Association. (2025). Bronchiolitis obliterans
+            symptoms and diagnosis. American Lung Association.
+            <a
+              href="https://www.lung.org/lung-health-diseases/lung-disease-lookup/popcorn-lung/symptoms-diagnosis"
+              style="color: inherit"
+              >https://www.lung.org/lung-health-diseases/lung-disease-lookup/popcorn-lung/symptoms-diagnosis</a
+            ></span
+          ><span class="cite"
+            >Cleveland Clinic. (2026). Popcorn lung (bronchiolitis obliterans).
+            Cleveland Clinic.
+            <a
+              href="https://my.clevelandclinic.org/health/diseases/22590-popcorn-lung-bronchiolitis-obliterans"
+              style="color: inherit"
+              >https://my.clevelandclinic.org/health/diseases/22590-popcorn-lung-bronchiolitis-obliterans</a
+            ></span
+          >
+        </p>
+      </div>
+    </section>
 
-<section id="diagnosis">
-  <div class="wrap">
-    <h2>How it is diagnosed</h2>
-    <figure>
-      <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Spirometry_NIH.jpg" alt="Patient taking a spirometry test">
-      <figcaption>National Heart, Lung, and Blood Institute. (2013). Spirometry NIH. Wikimedia Commons. <a href="https://commons.wikimedia.org/wiki/File:Spirometry_NIH.jpg" style="color:inherit">https://commons.wikimedia.org/wiki/File:Spirometry_NIH.jpg</a></figcaption>
-    </figure>
-    <p>There are several ways; I was diagnosed through a biopsy, which, as a fun fact, wasn't just a simple biopsy — they actually broke my left lung. Diagnosing it is also usually based on lung function tests, like spirometry, and doctors may also order chest CT scans, X-rays, and bronchoscopies. Catching it early matters a lot, because it allows treatment to start before the damage progresses too far.<span class="cite">American Lung Association. (2025). Bronchiolitis obliterans symptoms and diagnosis. American Lung Association. <a href="https://www.lung.org/lung-health-diseases/lung-disease-lookup/popcorn-lung/symptoms-diagnosis" style="color:inherit">https://www.lung.org/lung-health-diseases/lung-disease-lookup/popcorn-lung/symptoms-diagnosis</a></span><span class="cite">Cleveland Clinic. (2026). Popcorn lung (bronchiolitis obliterans). Cleveland Clinic. <a href="https://my.clevelandclinic.org/health/diseases/22590-popcorn-lung-bronchiolitis-obliterans" style="color:inherit">https://my.clevelandclinic.org/health/diseases/22590-popcorn-lung-bronchiolitis-obliterans</a></span></p>
-  </div>
-</section>
+    <section id="treatment">
+      <div class="wrap">
+        <h2>Treatment</h2>
+        <p>
+          There is no treatment that can reverse the damage. However, there are
+          treatments to try to slow the progression, reduce inflammation, and
+          improve quality of life.<span class="cite"
+            >Cleveland Clinic. (2026). Popcorn lung (bronchiolitis obliterans).
+            Cleveland Clinic.
+            <a
+              href="https://my.clevelandclinic.org/health/diseases/22590-popcorn-lung-bronchiolitis-obliterans"
+              style="color: inherit"
+              >https://my.clevelandclinic.org/health/diseases/22590-popcorn-lung-bronchiolitis-obliterans</a
+            ></span
+          >
+        </p>
+        <p>
+          One of the most commonly used regimens is FAM therapy, made up of
+          inhaled fluticasone, azithromycin, and montelukast. Depending on each
+          patient's progress, the medical team may consider other treatments,
+          like immunosuppressants — for example, I took prednisolone, and it's
+          been one of the worst things I've taken, because it made me swell up
+          completely, and I still have after-effects from it today. Other
+          options include exercise, but at your own pace.<span class="cite"
+            >Dinh-Van L. (2026). Management challenges and outcomes of
+            bronchiolitis obliterans syndrome after hematopoietic stem cell
+            transplantation: First case series report from Vietnam. Case Reports
+            in Hematology.
+            <a
+              href="https://onlinelibrary.wiley.com/doi/10.1155/crh/8055215"
+              style="color: inherit"
+              >https://onlinelibrary.wiley.com/doi/10.1155/crh/8055215</a
+            ></span
+          ><span class="cite"
+            >National Jewish Health. (2025). Bronchiolitis obliterans. National
+            Jewish Health.
+            <a
+              href="https://www.nationaljewish.org/conditions/bronchiolitis"
+              style="color: inherit"
+              >https://www.nationaljewish.org/conditions/bronchiolitis</a
+            ></span
+          >
+        </p>
+        <p>
+          It all depends on the patient — not everything works the same for
+          everyone
+        </p>
+      </div>
+    </section>
 
-<section id="treatment">
-  <div class="wrap">
-    <h2>Treatment</h2>
-    <p>There is no treatment that can reverse the damage. However, there are treatments to try to slow the progression, reduce inflammation, and improve quality of life.<span class="cite">Cleveland Clinic. (2026). Popcorn lung (bronchiolitis obliterans). Cleveland Clinic. <a href="https://my.clevelandclinic.org/health/diseases/22590-popcorn-lung-bronchiolitis-obliterans" style="color:inherit">https://my.clevelandclinic.org/health/diseases/22590-popcorn-lung-bronchiolitis-obliterans</a></span></p>
-    <p>One of the most commonly used regimens is FAM therapy, made up of inhaled fluticasone, azithromycin, and montelukast. Depending on each patient's progress, the medical team may consider other treatments, like immunosuppressants — for example, I took prednisolone, and it's been one of the worst things I've taken, because it made me swell up completely, and I still have after-effects from it today. Other options include exercise, but at your own pace.<span class="cite">Dinh-Van L. (2026). Management challenges and outcomes of bronchiolitis obliterans syndrome after hematopoietic stem cell transplantation: First case series report from Vietnam. Case Reports in Hematology. <a href="https://onlinelibrary.wiley.com/doi/10.1155/crh/8055215" style="color:inherit">https://onlinelibrary.wiley.com/doi/10.1155/crh/8055215</a></span><span class="cite">National Jewish Health. (2025). Bronchiolitis obliterans. National Jewish Health. <a href="https://www.nationaljewish.org/conditions/bronchiolitis" style="color:inherit">https://www.nationaljewish.org/conditions/bronchiolitis</a></span></p>
-    <p>It all depends on the patient — not everything works the same for everyone</p>
-  </div>
-</section>
+    <section id="prognosis">
+      <div class="wrap">
+        <h2>Cure</h2>
+        <p>
+          It is a disease with no cure, because the damage it leaves in the
+          bronchioles is permanent. Even so, early diagnosis, frequent
+          check-ups, proper treatment, and preventing infections can help
+          preserve lung function for longer.<span class="cite"
+            >Cleveland Clinic. (2026). Popcorn lung (bronchiolitis obliterans).
+            Cleveland Clinic.
+            <a
+              href="https://my.clevelandclinic.org/health/diseases/22590-popcorn-lung-bronchiolitis-obliterans"
+              style="color: inherit"
+              >https://my.clevelandclinic.org/health/diseases/22590-popcorn-lung-bronchiolitis-obliterans</a
+            ></span
+          >
+        </p>
+        <p>
+          Living with this disease means learning to recognize when your body
+          can't take any more, knowing your limits, but without giving up a
+          normal life.
+        </p>
+      </div>
+    </section>
 
-<section id="prognosis">
-  <div class="wrap">
-    <h2>Cure</h2>
-    <p>It is a disease with no cure, because the damage it leaves in the bronchioles is permanent. Even so, early diagnosis, frequent check-ups, proper treatment, and preventing infections can help preserve lung function for longer.<span class="cite">Cleveland Clinic. (2026). Popcorn lung (bronchiolitis obliterans). Cleveland Clinic. <a href="https://my.clevelandclinic.org/health/diseases/22590-popcorn-lung-bronchiolitis-obliterans" style="color:inherit">https://my.clevelandclinic.org/health/diseases/22590-popcorn-lung-bronchiolitis-obliterans</a></span></p>
-    <p>Living with this disease means learning to recognize when your body can't take any more, knowing your limits, but without giving up a normal life.</p>
-  </div>
-</section>
+    <section id="objective">
+      <div class="wrap">
+        <h2>Objective</h2>
+        <p>
+          To understand, from a different angle, bronchiolitis obliterans as a
+          complication of chronic graft-versus-host rejection following a bone
+          marrow transplant — from its origin, to its medical management, to the
+          impact it has on everyday life.
+        </p>
+        <ul class="objetivos">
+          <li>
+            To teach visitors to the site what bronchiolitis obliterans is and
+            how it relates to transplants, in this case bone marrow transplants,
+            so they understand a disease that is little known but on the rise
+            because of vape use
+          </li>
+          <li>
+            To establish what relationship exists between an average person's
+            lifestyle habits and respiratory risk factors, in order to reflect
+            on which everyday practices can prevent or worsen this type of
+            disease
+          </li>
+          <li>
+            To generate empathy and awareness about what it is like to live day
+            to day with this disease, showing the role that medical and family
+            support plays in managing it.
+          </li>
+        </ul>
+      </div>
+    </section>
 
-<section id="objective">
-  <div class="wrap">
-    <h2>Objective</h2>
-    <p>To understand, from a different angle, bronchiolitis obliterans as a complication of chronic graft-versus-host rejection following a bone marrow transplant — from its origin, to its medical management, to the impact it has on everyday life.</p>
-    <ul class="objetivos">
-      <li>To teach visitors to the site what bronchiolitis obliterans is and how it relates to transplants, in this case bone marrow transplants, so they understand a disease that is little known but on the rise because of vape use</li>
-      <li>To establish what relationship exists between an average person's lifestyle habits and respiratory risk factors, in order to reflect on which everyday practices can prevent or worsen this type of disease</li>
-      <li>To generate empathy and awareness about what it is like to live day to day with this disease, showing the role that medical and family support plays in managing it.</li>
-    </ul>
-  </div>
-</section>
+    <section id="interview">
+      <div class="wrap">
+        <h2>Interview</h2>
+        <video controls preload="metadata">
+          <source src="Interview.mp4" type="video/mp4" />
+        </video>
+      </div>
+    </section>
 
-<section id="references">
-  <div class="wrap">
-    <h2>References</h2>
-    <p class="cite">American Lung Association. (2025). Bronchiolitis obliterans symptoms and diagnosis. American Lung Association. <a href="https://www.lung.org/lung-health-diseases/lung-disease-lookup/popcorn-lung/symptoms-diagnosis" style="color:inherit">https://www.lung.org/lung-health-diseases/lung-disease-lookup/popcorn-lung/symptoms-diagnosis</a></p>
-    <p class="cite">Cancer Research UK. (2016). Diagram of bone marrow. Wikimedia Commons. <a href="https://commons.wikimedia.org/wiki/File:Diagram_of_bone_marrow_CRUK_462.svg" style="color:inherit">https://commons.wikimedia.org/wiki/File:Diagram_of_bone_marrow_CRUK_462.svg</a></p>
-    <p class="cite">Cleveland Clinic. (2026). Popcorn lung (bronchiolitis obliterans). Cleveland Clinic. <a href="https://my.clevelandclinic.org/health/diseases/22590-popcorn-lung-bronchiolitis-obliterans" style="color:inherit">https://my.clevelandclinic.org/health/diseases/22590-popcorn-lung-bronchiolitis-obliterans</a></p>
-    <p class="cite">Dinh-Van L. (2026). Management challenges and outcomes of bronchiolitis obliterans syndrome after hematopoietic stem cell transplantation: First case series report from Vietnam. Case Reports in Hematology. <a href="https://onlinelibrary.wiley.com/doi/10.1155/crh/8055215" style="color:inherit">https://onlinelibrary.wiley.com/doi/10.1155/crh/8055215</a></p>
-    <p class="cite">Fernandez J. (2026). Hyper-IgM syndrome. MSD Manual Consumer Version. <a href="https://www.merckmanuals.com/home/immune-disorders/immunodeficiency-disorders/hyper-igm-syndrome" style="color:inherit">https://www.merckmanuals.com/home/immune-disorders/immunodeficiency-disorders/hyper-igm-syndrome</a></p>
-    <p class="cite">National Cancer Institute. (2006). Illu bronchi lungs. Wikimedia Commons. <a href="https://commons.wikimedia.org/wiki/File:Illu_bronchi_lungs.jpg" style="color:inherit">https://commons.wikimedia.org/wiki/File:Illu_bronchi_lungs.jpg</a></p>
-    <p class="cite">National Heart, Lung, and Blood Institute. (2013). Spirometry NIH. Wikimedia Commons. <a href="https://commons.wikimedia.org/wiki/File:Spirometry_NIH.jpg" style="color:inherit">https://commons.wikimedia.org/wiki/File:Spirometry_NIH.jpg</a></p>
-    <p class="cite">National Jewish Health. (2025). Bronchiolitis obliterans. National Jewish Health. <a href="https://www.nationaljewish.org/conditions/bronchiolitis" style="color:inherit">https://www.nationaljewish.org/conditions/bronchiolitis</a></p>
-  </div>
-</section>
+    <section id="references">
+      <div class="wrap">
+        <h2>References</h2>
+        <p class="cite">
+          American Lung Association. (2025). Bronchiolitis obliterans symptoms
+          and diagnosis. American Lung Association.
+          <a
+            href="https://www.lung.org/lung-health-diseases/lung-disease-lookup/popcorn-lung/symptoms-diagnosis"
+            style="color: inherit"
+            >https://www.lung.org/lung-health-diseases/lung-disease-lookup/popcorn-lung/symptoms-diagnosis</a
+          >
+        </p>
+        <p class="cite">
+          Cancer Research UK. (2016). Diagram of bone marrow. Wikimedia Commons.
+          <a
+            href="https://commons.wikimedia.org/wiki/File:Diagram_of_bone_marrow_CRUK_462.svg"
+            style="color: inherit"
+            >https://commons.wikimedia.org/wiki/File:Diagram_of_bone_marrow_CRUK_462.svg</a
+          >
+        </p>
+        <p class="cite">
+          Cleveland Clinic. (2026). Popcorn lung (bronchiolitis obliterans).
+          Cleveland Clinic.
+          <a
+            href="https://my.clevelandclinic.org/health/diseases/22590-popcorn-lung-bronchiolitis-obliterans"
+            style="color: inherit"
+            >https://my.clevelandclinic.org/health/diseases/22590-popcorn-lung-bronchiolitis-obliterans</a
+          >
+        </p>
+        <p class="cite">
+          Dinh-Van L. (2026). Management challenges and outcomes of
+          bronchiolitis obliterans syndrome after hematopoietic stem cell
+          transplantation: First case series report from Vietnam. Case Reports
+          in Hematology.
+          <a
+            href="https://onlinelibrary.wiley.com/doi/10.1155/crh/8055215"
+            style="color: inherit"
+            >https://onlinelibrary.wiley.com/doi/10.1155/crh/8055215</a
+          >
+        </p>
+        <p class="cite">
+          Fernandez J. (2026). Hyper-IgM syndrome. MSD Manual Consumer Version.
+          <a
+            href="https://www.merckmanuals.com/home/immune-disorders/immunodeficiency-disorders/hyper-igm-syndrome"
+            style="color: inherit"
+            >https://www.merckmanuals.com/home/immune-disorders/immunodeficiency-disorders/hyper-igm-syndrome</a
+          >
+        </p>
+        <p class="cite">
+          National Cancer Institute. (2006). Illu bronchi lungs. Wikimedia
+          Commons.
+          <a
+            href="https://commons.wikimedia.org/wiki/File:Illu_bronchi_lungs.jpg"
+            style="color: inherit"
+            >https://commons.wikimedia.org/wiki/File:Illu_bronchi_lungs.jpg</a
+          >
+        </p>
+        <p class="cite">
+          National Heart, Lung, and Blood Institute. (2013). Spirometry NIH.
+          Wikimedia Commons.
+          <a
+            href="https://commons.wikimedia.org/wiki/File:Spirometry_NIH.jpg"
+            style="color: inherit"
+            >https://commons.wikimedia.org/wiki/File:Spirometry_NIH.jpg</a
+          >
+        </p>
+        <p class="cite">
+          National Jewish Health. (2025). Bronchiolitis obliterans. National
+          Jewish Health.
+          <a
+            href="https://www.nationaljewish.org/conditions/bronchiolitis"
+            style="color: inherit"
+            >https://www.nationaljewish.org/conditions/bronchiolitis</a
+          >
+        </p>
+      </div>
+    </section>
 
-<footer>Term 3 project &middot; 10th grade</footer>
-
-</body>
+    <footer>Term 3 project &middot; 10th grade</footer>
+  </body>
 </html>
